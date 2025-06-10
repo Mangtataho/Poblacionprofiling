@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barangay Poblacion A - Resident Management</title>
+  <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+      <h1>Barangay Poblacion A</h1>
+      <ul>
+        <li><a href="Home.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="map.html">MAP</a></li>
+        <li><a href="Resident.html">RESIDENT</a></li>
+        <li><a href="setting.html">SETTINGS</a></li>
+        <li><a href="index.html">SIGN OUT</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <h2>Resident Management</h2>
+
+  <div class="search-section">
+    <input type="text" id="searchInput" placeholder="Search by name or purok..." onkeyup="searchResidents()">
+    <button onclick="searchResidents()">Search</button>
+  </div>
+
+  <div class="population-container">
+    <div>
+      <p id="populationCount">Total Population: 0</p>
+      <p id="seniorCount">Senior Citizens: 0</p>
+      <p id="pwdCount">PWDs: 0</p>
+      <p id="soloParentCount">Solo Parents: 0</p>
+      <p id="fourPsCount">4Ps Beneficiaries: 0</p>
+      <p id="ofwCount">OFW Households: 0</p>
+    </div>
+  </div>
+
+  <button class="add-resident-btn" onclick="showAddResidentForm()">Add Resident</button>
+
+  <table id="residentTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Purok</th>
+        <th>Years in Barangay</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div id="recordSection" class="record-section">
+    <h3>Resident Record</h3>
+    <p id="residentRecordDetails"></p>
+    <button onclick="closeRecordSection()">Close Record</button>
+  </div>
+
+  <div id="addResidentForm" class="form-container">
+    <h2>Barangay Residency Profiling Form</h2>
+    <form id="addResidentFormElement">
+      <div class="section-title">1. Personal Information</div>
+      <div><label>Full Name:</label><input type="text" name="fullname" required></div>
+      <div><label>Nickname / Alias:</label><input type="text" name="alias"></div>
+      <div><label>Date of Birth:</label><input type="date" name="dob"></div>
+      <div><label>Place of Birth:</label><input type="text" name="birthplace"></div>
+      <div>
+        <label>Gender:</label>
+        <select name="gender">
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div>
+        <label>Civil Status:</label>
+        <select name="civil_status">
+          <option>Single</option>
+          <option>Married</option>
+          <option>Widowed</option>
+          <option>Separated</option>
+        </select>
+      </div>
+      <div><label>Nationality:</label><input type="text" name="nationality"></div>
+      <div><label>Religion:</label><input type="text" name="religion"></div>
+
+      <div class="section-title">2. Residency Details</div>
+      <div><label>Current Address:</label><input type="text" name="address"></div>
+      <div><label>Length of Stay in Barangay:</label><input type="text" name="length_stay"></div>
+      <div><label>Previous Address:</label><input type="text" name="prev_address"></div>
+      <div>
+        <label>Residency Status:</label>
+        <select name="residency_status">
+          <option>Owner</option>
+          <option>Renter/Boarder</option>
+          <option>Living with Relatives</option>
+          <option>Informal Settler</option>
+        </select>
+      </div>
+
+      <div class="section-title">3. Household Information</div>
+      <div><label>Head of Household:</label><input type="text" name="household_head"></div>
+      <div><label>Number of Household Members:</label><input type="number" name="household_members"></div>
+      <div><label>Relationship to Household Head:</label><input type="text" name="relationship"></div>
+      <div>
+        <label>Housing Type:</label>
+        <select name="housing_type">
+          <option>Concrete</option>
+          <option>Semi-Concrete</option>
+          <option>Wood</option>
+          <option>Nipa</option>
+        </select>
+      </div>
+      <div>
+        <label>Housing Ownership:</label>
+        <select name="housing_ownership">
+          <option>Owned</option>
+          <option>Rented</option>
+          <option>Government-assisted</option>
+        </select>
+      </div>
+
+      <div class="section-title">4. Contact & Community</div>
+      <div><label>Mobile Number:</label><input type="tel" name="mobile"></div>
+      <div><label>Email Address:</label><input type="email" name="email"></div>
+      <div><label>Emergency Contact (Name & Number):</label><input type="text" name="emergency_contact"></div>
+      <div>
+        <label>Registered Voter in Barangay?</label>
+        <select name="voter">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div><label>Precinct Number (if known):</label><input type="text" name="precinct"></div>
+      <div>
+        <label>Participation in Barangay Activities:</label>
+        <select name="participation">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="section-title">5. Special Categories</div>
+      <div><label><input type="checkbox" name="category" value="Senior Citizen"> Senior Citizen</label></div>
+      <div><label><input type="checkbox" name="category" value="PWD"> PWD (Person with Disability)</label></div>
+      <div><label><input type="checkbox" name="category" value="Solo Parent"> Solo Parent</label></div>
+      <div><label><input type="checkbox" name="category" value="4Ps"> 4Ps Beneficiary</label></div>
+      <div><label><input type="checkbox" name="category" value="OFW Household"> OFW in Household</label></div>
+
+      <div style="text-align: center;">
+        <button type="submit" class="add-resident-btn">Submit</button>
+        <button type="button" class="add-resident-btn" onclick="cancelAddResident()">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <h2>Residents by Purok</h2>
+  <div id="purokSections"></div>
+
+  <script>
+    let residents = [];
+    let purokPopulation = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
+
+    function updatePopulationCount() {
+      document.getElementById("populationCount").innerText = `Total Population: ${residents.length}`;
+      let senior = 0, pwd = 0, solo = 0, fourps = 0, ofw = 0;
+
+      residents.forEach(r => {
+        const cat = r.categories || [];
+        if (cat.includes("Senior Citizen")) senior++;
+        if (cat.includes("PWD")) pwd++;
+        if (cat.includes("Solo Parent")) solo++;
+        if (cat.includes("4Ps")) fourps++;
+        if (cat.includes("OFW Household")) ofw++;
+      });
+
+      document.getElementById("seniorCount").innerText = `Senior Citizens: ${senior}`;
+      document.getElementById("pwdCount").innerText = `PWDs: ${pwd}`;
+      document.getElementById("soloParentCount").innerText = `Solo Parents: ${solo}`;
+      document.getElementById("fourPsCount").innerText = `4Ps Beneficiaries: ${fourps}`;
+      document.getElementById("ofwCount").innerText = `OFW Households: ${ofw}`;
+
+      updatePurokCounts();
+    }
+
+    function showAddResidentForm() {
+      document.getElementById("addResidentForm").style.display = "block";
+    }
+
+    function cancelAddResident() {
+      document.getElementById("addResidentFormElement").reset();
+      document.getElementById("addResidentForm").style.display = "none";
+    }
+
+    document.getElementById("addResidentFormElement").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+      const name = formData.get("fullname").trim();
+      const purok = 1;
+      const lengthStayStr = formData.get("length_stay").trim();
+      let yearsInBarangay = parseInt(lengthStayStr) || 0;
+
+      const categories = formData.getAll("category");
+
+      residents.push({
+        name: name,
+        purok: purok,
+        yearsInBarangay: yearsInBarangay,
+        categories: categories
+      });
+
+      if (purok >= 1 && purok <= 6) purokPopulation[purok]++;
+      form.reset();
+      document.getElementById("addResidentForm").style.display = "none";
+      updateResidentList();
+      updatePopulationCount();
+    });
+
+    function updateResidentList() {
+      let tableBody = document.getElementById("residentTable").getElementsByTagName("tbody")[0];
+      tableBody.innerHTML = "";
+      residents.forEach((res, index) => {
+        let row = tableBody.insertRow();
+        row.insertCell(0).textContent = res.name;
+        row.insertCell(1).textContent = res.purok;
+        row.insertCell(2).textContent = res.yearsInBarangay;
+        row.insertCell(3).innerHTML = `
+          <a href="#" onclick="viewResidentRecord(${index});return false;">View</a> | 
+          <a href="#" onclick="deleteResident(${index});return false;">Delete</a>`;
+      });
+    }
+
+    function viewResidentRecord(index) {
+      const res = residents[index];
+      if (!res) return;
+      let recordDetails = document.getElementById("residentRecordDetails");
+      recordDetails.innerHTML = `
+        <strong>Name:</strong> ${res.name}<br/>
+        <strong>Purok:</strong> ${res.purok}<br/>
+        <strong>Years in Barangay:</strong> ${res.yearsInBarangay}<br/>
+        <strong>Categories:</strong> ${res.categories.join(", ") || "None"}
+      `;
+      document.getElementById("recordSection").style.display = "block";
+    }
+
+    function closeRecordSection() {
+      document.getElementById("recordSection").style.display = "none";
+    }
+
+    function deleteResident(index) {
+      if (!confirm("Are you sure you want to delete this resident?")) return;
+      const removed = residents.splice(index, 1)[0];
+      if (removed && removed.purok >= 1 && removed.purok <= 6) purokPopulation[removed.purok]--;
+      updateResidentList();
+      updatePopulationCount();
+    }
+
+    function updatePurokCounts() {
+      const container = document.getElementById("purokSections");
+      container.innerHTML = "";
+      for (let i = 1; i <= 6; i++) {
+        container.innerHTML += `
+          <div class="purok-section">
+            <h3>Purok ${i} Residents: ${purokPopulation[i]}</h3>
+            <ul>${residents.filter(r => r.purok === i).map(r => `<li>${r.name}</li>`).join("")}</ul>
+          </div>
+        `;
+      }
+    }
+
+    function searchResidents() {
+      const filter = document.getElementById("searchInput").value.toLowerCase();
+      let tableBody = document.getElementById("residentTable").getElementsByTagName("tbody")[0];
+      tableBody.innerHTML = "";
+
+      const filtered = residents.filter(res =>
+        res.name.toLowerCase().includes(filter) ||
+        res.purok.toString().includes(filter)
+      );
+
+      filtered.forEach((res, index) => {
+        let row = tableBody.insertRow();
+        row.insertCell(0).textContent = res.name;
+        row.insertCell(1).textContent = res.purok;
+        row.insertCell(2).textContent = res.yearsInBarangay;
+        row.insertCell(3).innerHTML = `
+          <a href="#" onclick="viewResidentRecord(${index});return false;">View</a> | 
+          <a href="#" onclick="deleteResident(${index});return false;">Delete</a>`;
+      });
+    }
+
+    updateResidentList();
+    updatePopulationCount();
+  </script>
+
+</body>
+</html>

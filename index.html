@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Barangay Poblacion A - Login</title>
+  <link rel="stylesheet" href="sign.css">
+  <script>
+    function signIn(event) {
+      event.preventDefault(); // Prevent form submission reload
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === "Wendyll" && password === "Lachica") {
+        alert("Sign in successful!");
+        window.location.href = "home.html";
+      } else {
+        alert("Incorrect username or password");
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="logo"><span>Profiling</span> System</div>
+    <h2>Sign in</h2>
+    <p>Sign in and start managing your Resident!</p>
+    <form onsubmit="signIn(event)">
+      <input type="text" id="username" placeholder="Email   " required />
+      <input type="password" id="password" placeholder="Password" required />
+      <div class="options">
+        <label><input type="checkbox" /> Remember me</label>
+        <a href="#">Forgot password?</a>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <footer></footer>
+
+</body>
+</html>

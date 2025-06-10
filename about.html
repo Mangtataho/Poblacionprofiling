@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barangay Poblacion A - Officials & About</title>
+  <link rel="stylesheet" href="styless.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <div class="navbar">
+      <h1>Profiling System</h1>
+      <ul>
+        <li><a href="Home.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="map.html">MAP</a></li>
+        <li><a href="Resident.html">RESIDENT</a></li>
+        <li><a href="setting.html">SETTINGS</a></li>
+        <li><a href="index.html" class="signout-button">SIGN OUT</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- About Button -->
+  <button class="about-button" onclick="toggleAboutContent()">About</button>
+
+  <!-- About Section -->
+  <div class="about-content" id="aboutContent">
+    <div class="section" id="history">
+      <h3>History</h3>
+      <p>Poblacion A was created with the Municipality of M'lang by Presidential Decree No. 462 (Aug 3, 1961)...</p>
+    </div>
+    <div class="section" id="mission">
+      <h3>Mission</h3>
+      <p>To deliver Basic Services in Attaining Peace, Unity, and Economic Progress through Clean and Honest Governance</p>
+    </div>
+    <div class="section" id="vision">
+      <h3>Vision</h3>
+      <p>Barangay Poblacion A, a well-developed law-abiding self-reliant community...</p>
+    </div>
+  </div>
+
+  <!-- Officials Tree -->
+  <main class="container" role="main" aria-label="Barangay Official Organizational Tree">
+    <h1>Barangay Officials</h1>
+    <section class="org-tree">
+      <!-- Captain -->
+      <div class="level">
+        <div class="node">
+          <img src="images/captain.jpg" alt="Captain" />
+          <div class="role">Captain</div>
+          <div class="title">Hon. Juan dela Cruz</div>
+          <button class="edit-btn" onclick="openEditModal(this)">Edit</button>
+        </div>
+      </div>
+
+      <!-- Councilors -->
+      <div class="level">
+        <div class="node"><img src="images/councilor1.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Maria Santos</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/councilor2.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Pedro Reyes</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/councilor3.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Ana Lopez</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/councilor4.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Luis Garcia</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/councilor5.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Carmina Diaz</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/councilor6.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Rafael Cruz</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/councilor7.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Teresa Lim</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+      </div>
+      
+      <!-- Secretary & Treasurer -->
+      <div class="level">
+        <div class="node"><img src="images/secretary.jpg" alt="Secretary"><div class="role">Secretary</div><div class="title">Hon. Clara Mendoza</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/treasurer.jpg" alt="Treasurer"><div class="role">Treasurer</div><div class="title">Hon. Daniel Ramos</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+      </div>
+    </section>
+  </main>
+    <!-- Officials Tree -->
+  <main class="container" role="main" aria-label="Barangay Official Organizational Tree">
+    <h1>Sanguniang Kabataan</h1>
+    <section class="org-tree">
+      <!-- Captain -->
+      <div class="level">
+        <div class="node">
+          <img src="images/captain.jpg" alt="Captain" />
+          <div class="role">Sk Captain</div>
+          <div class="title">Hon. Juan dela Cruz</div>
+          <button class="edit-btn" onclick="openEditModal(this)">Edit</button>
+        </div>
+          <div class="level">
+        <div class="node"><img src="images/councilor1.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Maria Santos</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/councilor2.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Pedro Reyes</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/councilor3.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Ana Lopez</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/councilor4.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Luis Garcia</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/councilor5.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Carmina Diaz</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/councilor6.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Rafael Cruz</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/councilor7.jpg" alt="Councilor"><div class="role">Councilor</div><div class="title">Hon. Teresa Lim</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+      </div>
+      <div class="level">
+        <div class="node"><img src="images/secretary.jpg" alt="Secretary"><div class="role">Sk Secretary</div><div class="title">Hon. Clara Mendoza</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+        <div class="node"><img src="images/treasurer.jpg" alt="Treasurer"><div class="role">Sk Treasurer</div><div class="title">Hon. Daniel Ramos</div><button class="edit-btn" onclick="openEditModal(this)">Edit</button></div>
+      </div>
+
+  <!-- Edit Modal -->
+
+  <!-- JavaScript -->
+  <script>
+    let currentNode = null;
+
+    function toggleAboutContent() {
+      const aboutContent = document.getElementById("aboutContent");
+      aboutContent.style.display = aboutContent.style.display === "block" ? "none" : "block";
+    }
+
+    function openEditModal(button) {
+      currentNode = button.parentElement;
+      document.getElementById("editName").value = currentNode.querySelector('.title').textContent;
+      document.getElementById("editModal").style.display = "flex";
+    }
+
+    function closeEditModal() {
+      document.getElementById("editModal").style.display = "none";
+    }
+
+    function saveChanges() {
+      const newName = document.getElementById("editName").value;
+      const imageInput = document.getElementById("editImage");
+      const imageFile = imageInput.files[0];
+
+      if (newName) {
+        currentNode.querySelector('.title').textContent = newName;
+      }
+
+      if (imageFile) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          currentNode.querySelector('img').src = e.target.result;
+        };
+        reader.readAsDataURL(imageFile);
+      }
+
+      closeEditModal();
+    }
+
+    // Close modal on outside click
+    window.onclick = function(event) {
+      const modal = document.getElementById("editModal");
+      if (event.target === modal) {
+        closeEditModal();
+      }
+    }
+  </script>
+</body>
+</html>
